@@ -1,0 +1,67 @@
+---
+- name: Nignx 
+  hosts: all 
+  become: yes
+
+  tasks:
+    - name: update cache
+      apt:
+        update_cache: yes
+        
+    - name: install nginx
+      package:
+        name: nginx
+        state: latest
+
+    - name: Check if nginx is running
+      command: service nginx status
+      register: nginx_status
+      ignore_errors: yes
+
+    - name: copy index.html
+      copy: 
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+
+    - name: Restart nginx 
+      service: 
+        name: nginx
+        state: restarted
+        use: service
+
+
+
+
+
+# - name: Update web servers
+#   hosts: nginx
+#   become: yes  # Runs tasks as root
+
+#   tasks:
+#     - name: Update apt cache
+#       apt:
+#         update_cache: yes
+#         cache_valid_time: 3600  # Cache valid for 1 hour
+
+#     - name: Install nginx
+#       package:
+#         name: nginx
+#         state: latest
+
+#     - name: Start nginx using service
+#       command: service nginx start
+
+#     - name: Copy index.html to web root
+#       copy: 
+#         src: index.html
+#         dest: /var/www/html/index.html
+#         owner: www-data  # Ensures nginx can read the file
+#         group: www-data
+#         mode: '0644' 
+
+#     - name: Restart nginx using service
+#       command: service nginx restart
+
+
