@@ -1,2 +1,7 @@
 [web_servers]
 172.17.0.2
+
+
+[web:vars]
+package_name=nginx
+package_version=1.24.0-2ubuntu7.1
