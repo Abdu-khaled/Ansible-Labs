@@ -1,0 +1,12 @@
+- name: Install package using playbook-level variables
+  hosts: all
+  become: yes
+  vars:
+    package_name: "nginx"
+    package_version: "1.24.0-2ubuntu7.1"
+
+  tasks:
+    - name: Install package using apt module
+      apt:
+        name: "{{ package_name }}={{ package_version }}"
+        state: present
