@@ -1,6 +1,4 @@
-Here is the full content for your README.md file that you can copy and paste into your repository:
 
-```markdown
 # Ansible Labs
 
 Welcome to the Ansible Labs repository. This repository contains various Ansible playbooks and exercises designed to help you learn and practice Ansible.
