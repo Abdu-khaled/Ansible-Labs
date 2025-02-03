@@ -1,4 +1,5 @@
 # on inventory level
+# on command line level
 ---
 - name: Install package using inventory-level variables
   hosts: all
