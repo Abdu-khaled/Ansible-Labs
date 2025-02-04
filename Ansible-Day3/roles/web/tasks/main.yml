@@ -1,0 +1,20 @@
+# tasks file for web
+--- 
+- name: Install nginx
+  apt:
+    name: "{{ package_name }}"
+    state: present
+
+- name: Copy template file
+  template:
+    src: "{{ template_name }}"
+    dest: /var/www/html/index.html
+  notify: restart nginx
+
+- name: Copy files
+  copy: 
+    src: "{{ item }}"
+    dest: /var/www/html/
+  loop: "{{ file_list }}"
+  notify: restart nginx
+

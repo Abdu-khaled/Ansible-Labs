@@ -1,0 +1,12 @@
+---
+# vars file for web
+
+package_name: "nginx"
+template_name: "index.html.j2"
+template_message: "Hello friend maybe should give you a name"
+
+file_list:
+  - file1.txt
+  - file2.txt
+  - file3.txt
+
