@@ -1,7 +1,7 @@
 
 # Ansible-Labs
 
-This repository contains a collection of Ansible labs organized into two main directories: `Ansible-Day1` and `Ansible-Day2`. Each directory includes files and subdirectories that demonstrate various Ansible concepts, such as playbooks, inventory management, variables, loops, conditionals, and more. Below is a detailed breakdown of the contents.
+This repository contains a collection of Ansible labs organized into three main directories: `Ansible-Day1`, `Ansible-Day2`, and `Ansible-Day3`. Each directory includes files and subdirectories that demonstrate various Ansible concepts, such as playbooks, inventory management, variables, loops, conditionals, roles, and more. Below is a detailed breakdown of the contents.
 
 ---
 
@@ -11,40 +11,30 @@ This directory contains files for setting up and configuring an Ansible environm
 
 ### Files
 
-1. **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/Dockerfile)**  
+1. **Dockerfile**  
    - Instructions to build a Docker image for the Ansible environment. It includes necessary dependencies and configurations.
 
-2. **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/ansible.cfg)**  
+2. **ansible.cfg**  
    - The Ansible configuration file. It specifies settings like inventory location and host key checking.
 
-3. **[ansible1.png](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/ansible1.png)**  
-   - An image file used for documentation or presentation purposes.
-
-4. **[index.html](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/index.html)**  
-   - A simple HTML file, possibly used for displaying information or as part of a web interface.
-
-5. **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/inventory)**  
+3. **inventory**  
    - Lists the hosts and groups of hosts that Ansible will manage.
 
-6. **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day1/playbook.yml)**  
+4. **playbook.yml**  
    - A playbook containing tasks, handlers, and roles to automate tasks on managed hosts.
 
 ### Usage
 
-1. Build the Docker image:
-   ```sh
-   docker build -t ansible-env -f Dockerfile .
-   ```
+```sh
+# Build the Docker image
+docker build -t ansible-env -f Dockerfile .
 
-2. Run a container:
-   ```sh
-   docker run -it --rm ansible-env
-   ```
+# Run a container
+docker run -it --rm ansible-env
 
-3. Execute the playbook:
-   ```sh
-   ansible-playbook -i inventory playbook.yml
-   ```
+# Execute the playbook
+ansible-playbook -i inventory playbook.yml
+```
 
 ---
 
@@ -54,82 +44,73 @@ This directory contains subdirectories that demonstrate advanced Ansible concept
 
 ### Subdirectories
 
-#### 1. **Loops**
-   Demonstrates the use of loops in Ansible playbooks.
+#### 1. Loops
+Demonstrates the use of loops in Ansible playbooks.
 
-   - **Files:**
-     - **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Loops/Dockerfile)**: Instructions to build the Docker image.
-     - **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Loops/ansible.cfg)**: Ansible configuration file.
-     - **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Loops/inventory)**: Lists managed hosts.
-     - **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Loops/playbook.yml)**: Demonstrates looping over lists.
-     - **[playbook2.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Loops/playbook2.yml)**: Additional examples of loops.
-     - **[screenshot/](https://github.com/Abdu-khaled/Ansible-Labs/tree/main/Ansible-Day2/Loops/screenshot)**: Contains visual examples.
+```sh
+ansible-playbook -i inventory playbook.yml
+```
 
-   - **Usage:**
-     ```sh
-     ansible-playbook -i inventory playbook.yml
-     ```
+#### 2. Tags
+Demonstrates the use of tags for selective task execution.
 
-#### 2. **Tags**
-   Demonstrates the use of tags for selective task execution.
+```sh
+ansible-playbook -i inventory playbook.yml --tags "your_tag"
+```
 
-   - **Files:**
-     - **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Tags/Dockerfile)**: Instructions to build the Docker image.
-     - **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Tags/ansible.cfg)**: Ansible configuration file.
-     - **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Tags/inventory)**: Lists managed hosts.
-     - **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Tags/playbook.yml)**: Demonstrates tagged tasks.
-     - **[A-1.png](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Tags/A-1.png)**: Visual representation of tags.
+#### 3. Variable-Register
+Demonstrates the use of variables and the `register` module.
 
-   - **Usage:**
-     ```sh
-     ansible-playbook -i inventory playbook.yml --tags "your_tag"
-     ```
+```sh
+ansible-playbook -i inventory playbook.yml
+```
 
-#### 3. **Variable-Register**
-   Demonstrates the use of variables and the `register` module.
+#### 4. Variables
+Demonstrates the use of variables in Ansible.
 
-   - **Files:**
-     - **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variable-Register/Dockerfile)**: Instructions to build the Docker image.
-     - **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variable-Register/ansible.cfg)**: Ansible configuration file.
-     - **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variable-Register/inventory)**: Lists managed hosts.
-     - **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variable-Register/playbook.yml)**: Demonstrates variables and `register`.
-     - **[A-5.png](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variable-Register/A-5.png)**: Visual representation.
+```sh
+ansible-playbook -i inventory playbook.yml
+```
 
-   - **Usage:**
-     ```sh
-     ansible-playbook -i inventory playbook.yml
-     ```
+#### 5. When
+Demonstrates the use of the `when` conditional in Ansible.
 
-#### 4. **Variables**
-   Demonstrates the use of variables in Ansible.
+```sh
+ansible-playbook -i inventory playbook.yml
+```
 
-   - **Files:**
-     - **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variables/Dockerfile)**: Instructions to build the Docker image.
-     - **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variables/ansible.cfg)**: Ansible configuration file.
-     - **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variables/inventory)**: Lists managed hosts.
-     - **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variables/playbook.yml)**: Demonstrates basic variable usage.
-     - **[playbook2.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/Variables/playbook2.yml)**: Advanced variable usage.
-     - **[screenshot/](https://github.com/Abdu-khaled/Ansible-Labs/tree/main/Ansible-Day2/Variables/screenshot)**: Contains visual examples.
+---
 
-   - **Usage:**
-     ```sh
-     ansible-playbook -i inventory playbook.yml
-     ```
+## Ansible-Day3
 
-#### 5. **When**
-   Demonstrates the use of the `when` conditional in Ansible.
+This directory contains an Ansible role named `web` that demonstrates how to automate the setup and configuration of **NGINX** on **Ubuntu**. The role includes tasks for installing NGINX, copying files using templates, and using handlers to restart the service.
 
-   - **Files:**
-     - **[Dockerfile](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/When/Dockerfile)**: Instructions to build the Docker image.
-     - **[ansible.cfg](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/When/ansible.cfg)**: Ansible configuration file.
-     - **[inventory](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/When/inventory)**: Lists managed hosts.
-     - **[playbook.yml](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/When/playbook.yml)**: Demonstrates `when` conditionals.
-     - **[A-4.png](https://github.com/Abdu-khaled/Ansible-Labs/blob/main/Ansible-Day2/When/A-4.png)**: Visual representation.
+### Files
 
-   - **Usage:**
-     ```sh
-     ansible-playbook -i inventory playbook.yml
-     ```
+1. **web/**  
+   - The `web` role directory contains all the necessary files and subdirectories for the role.
+
+2. **site.yml**  
+   - The playbook that uses the `web` role to configure NGINX.
+
+### Role: web
+
+The `web` role performs the following tasks:
+
+- **Installs NGINX**: Uses the `apt` module to install the NGINX package.
+- **Copies a File Using a Template**: Renders a template (`index.html.j2`) and copies it to the NGINX web root directory (`/var/www/html/index.html`).
+- **Copies a List of Files**: Uses a loop to copy multiple files to the NGINX web root directory.
+- **Restarts NGINX**: Uses handlers to restart the NGINX service when changes are made.
+
+### Usage
+
+```sh
+# Run the playbook
+ansible-playbook -i inventory site.yml
+
+# Verify the changes
+curl http://localhost
+```
 
 ---
 
@@ -137,24 +118,21 @@ This directory contains subdirectories that demonstrate advanced Ansible concept
 
 To use any of the playbooks or configurations in this repository:
 
-1. Build the Docker image:
-   ```sh
-   docker build -t ansible-env -f Dockerfile .
-   ```
+```sh
+# Build the Docker image
+docker build -t ansible-env -f Dockerfile .
 
-2. Run a container:
-   ```sh
-   docker run -it --rm ansible-env
-   ```
+# Run a container
+docker run -it --rm ansible-env
 
-3. Execute the playbook:
-   ```sh
-   ansible-playbook -i inventory playbook.yml
-   ```
+# Execute the playbook
+ansible-playbook -i inventory site.yml
+```
 
 ---
 
-Feel free to explore and modify the files to suit your needs. Happy automating with Ansible!
+Feel free to explore and modify the files to suit your needs. Happy automating with Ansible! 🚀
+
 
 --- 
 
